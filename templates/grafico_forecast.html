@@ -10,24 +10,24 @@
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer",
             {
-              zoomEnabled: true,      
-              
+              zoomEnabled: true,
+
               title:{
-               text: "Analise de Glicose dia - {{ day_of_analysis }}"       
+               text: "Analise de Glicose dia - {{ day_of_analysis }}"
              },
-        
+
              data: [
-             {        
+             {
               type: "area",
               xValueType: "dateTime",
               dataPoints: [
-                {% for value in list_glicose %}               
+                {% for value in list_glicose %}
                   { x: {{ value['x'] }}, y :  {{ value['y'] }} },
                 {% endfor %}]
             }
             ]
           });
-        
+
             chart.render();
           }
     </script>
@@ -38,7 +38,7 @@
 {% extends 'base.html' %}
 
 {% block title%}Forecast{% endblock %}
-      
+
 {% block content %}
 <div id="chartContainer" style="height: 350px; width: 100%;"></div>
 

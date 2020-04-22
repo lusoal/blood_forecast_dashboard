@@ -10,70 +10,70 @@
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer",
             {
-              zoomEnabled: true,      
-              
+              zoomEnabled: true,
+
               title:{
-               text: "Analise de Glicose dia - 25/11/2019"       
+               text: "Analise de Glicose dia - 25/11/2019"
              },
-        
+
              data: [
-             {        
+             {
               type: "area",
               xValueType: "dateTime",
               dataPoints: [
-                               
+
                   { x: 1574647200000, y :  129.0 },
-                               
+
                   { x: 1574650800000, y :  128.0 },
-                               
+
                   { x: 1574654400000, y :  128.0 },
-                               
+
                   { x: 1574658000000, y :  128.0 },
-                               
+
                   { x: 1574661600000, y :  128.0 },
-                               
+
                   { x: 1574665200000, y :  128.0 },
-                               
+
                   { x: 1574668800000, y :  128.0 },
-                               
+
                   { x: 1574672400000, y :  128.0 },
-                               
+
                   { x: 1574676000000, y :  128.0 },
-                               
+
                   { x: 1574679600000, y :  128.0 },
-                               
+
                   { x: 1574683200000, y :  133.0 },
-                               
+
                   { x: 1574686800000, y :  128.0 },
-                               
+
                   { x: 1574690400000, y :  140.5 },
-                               
+
                   { x: 1574694000000, y :  150.5 },
-                               
+
                   { x: 1574697600000, y :  150.0 },
-                               
+
                   { x: 1574701200000, y :  164.0 },
-                               
+
                   { x: 1574704800000, y :  143.0 },
-                               
+
                   { x: 1574708400000, y :  159.5 },
-                               
+
                   { x: 1574712000000, y :  164.0 },
-                               
+
                   { x: 1574715600000, y :  161.0 },
-                               
+
                   { x: 1574719200000, y :  169.0 },
-                               
+
                   { x: 1574722800000, y :  155.0 },
-                               
+
                   { x: 1574726400000, y :  161.0 },
-                               
+
                   { x: 1574730000000, y :  159.5 },
                 ]
             }
             ]
           });
-        
+
             chart.render();
           }
     </script>
@@ -94,7 +94,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -126,7 +126,7 @@
       <div class="container" style="margin-top: 5%">
         <div class="row">
             <div class="col-lg">
-                
+
 <div id="chartContainer" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1110" height="300" style="position: absolute; -moz-user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1110" height="300" style="position: absolute; -moz-user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"><button style="display: none; background-color: white; color: black; border-color: currentcolor rgb(33, 150, 243) currentcolor currentcolor; border-style: none solid none none; border-width: medium 1px medium medium; border-image: none 100% / 1 / 0 stretch; -moz-user-select: none; padding: 5px 12px; cursor: pointer; float: left; width: 40px; height: 25px; outline: currentcolor none 0px; vertical-align: baseline; line-height: 0;" state="pan" type="button" title="Pan"><img style="height:95%; pointer-events: none;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAICSURBVEhLxZbPahNRGMUn/5MpuAiBEAIufQGfzr5E40YptBXajYzudCEuGqS+gGlrFwquDGRTutBdYfydzJ3LzeQmJGZue+Dw/Z17Mnfmu5Pof9Hr9Z61Wq0bWZMKj263O6xWq99wU9lOpzPMKgEhEcRucNOcioOK+0RzBhNvt9tPV4nmVF19+OWhVqt9xXgFXZq+8lCv119UKpUJ7iX2FmvFTKz8RH34YdBsNk8wVtjE4fGYwm8wrrDi3WBG5oKXZGRSS9hGuNFojLTe2lFz5xThWZIktayyiE2FdT3rzXBXz7krKiL8c17wAKFDjCus2AvW+YGZ9y2JF0VFRuMPfI//rsCE/C+s26s4gQu9ul7r4NteKx7H8XOC724xNNGbaNu++IrBqbOV7Tj3FgMRvc/YKOr3+3sE47wgEt/Bl/gaK5cHbNU11vYSXylfpK7XOvjuumPp4Wcoipu30Qsez2uMXYz4lfI+mOmwothY+SLiXJy7mKVpWs3Si0CoOMfeI9Od43Wic+jO+ZVv+crsm9QSNhUW9LXSeoPBYLXopthGuFQgdIxxhY+UDwlt1x5CZ1hX+NTUdt/OIvjKaDSmuOJfaIVNPKX+W18j/PLA2/kR44p5Sd8HbHngT/yTfNRWUXX14ZcL3wmX0+TLf8YO7CGT8yFE5zB3/gney25/OETRP9CtPDFe5jShAAAAAElFTkSuQmCC" alt="Pan"></button><button style="display: none; background-color: white; color: black; border-color: currentcolor rgb(33, 150, 243) currentcolor currentcolor; border-style: none solid none none; border-width: medium 0px medium medium; border-image: none 100% / 1 / 0 stretch; -moz-user-select: none; padding: 5px 12px; cursor: pointer; float: left; width: 40px; height: 25px; outline: currentcolor none 0px; vertical-align: baseline; line-height: 0;" state="reset" type="button" title="Reset"><img style="height:95%; pointer-events: none;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAeCAYAAABJ/8wUAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPjSURBVFhHxVdJaFNRFP1J/jwkP5MxsbaC1WJEglSxOFAXIsFpVRE3ggi1K90obioRRBA33XXnQnciirhQcMCdorgQxBkXWlREkFKsWkv5npvckp/XnzRpKh64kLw733fffe9L/wrL0+mVUdO8uTSZ3MBL/we2qg4rkuSpodCELstXE46ziVkLQ6FQcGOmeSSq6wd4aV50d3drWjj8kQKZJTUc9kxFGenv79dZrDksTSTWWJp2QYtEPiErysyzdX0LsxsCQR8keX8gs6RHIk8ysdgKFg2G53mhuOPsshTlBjKaFo1g7SqLNoShKLdFXT8huQ/paLSbxatYnc2mHMM4hr18Vi8TIvCmXF3vYrW6cF23gGTOk0M1wA4RKvOmq6vLZRVJipvmSWT6tZ6CSEYkco5V50VPT4+D7RwOqi6RiSZm0fJ+vggSqkeoypdsNmuyelNwbXsbgvkWYMtzDWNvWaijoyOBqE+hVK8abcssUeXQ/YfKyi0gFYv1Ipgfoj34fYGTJLOYJA0ODirok32GLN8XhUWCwSes1hIwBg6LydJ/tEeRRapAdUp+wSAiZchtZZWWgAZ+JNpD8peYXQVK9UwUxNpzOK8pq97kURZhYTCKBwPD7h2zK+js7Myi7D8Fod+0TkMI8+EMAngLGc/WtBFWawkFHFnoj/t9KLgGmF0B3QfkxC+EarxkdhnFYlFLY06USqUwL7UMjICHfh/wOc2sCqhpxGbCkLvL7EUDbF73+6DkmVWB6zi7xUDQSLeYvWjAILvm9zEnkJhlbRcDQZcv6Kg2AipyT/Axw6wKlqVSqxDdjF8Izfod13qURdrG/nxehY+xGh+h0CSzKygGvSNQIcc097BI24jb9hax6kj2E7OrMFX1il+ICEf2NrPbhiXLl+fYl+U7zK4iYdsDcyLGf+ofFlkwcN+s10KhmpuYhhtm0hCLVIFL0MDsqNlDIqy9x2CLs1jL6OvrI7vPRbtohXG6eFmsFnHDGAp6n9AgyuVySRZrGvROxRgIfLXhzjrNYnNBUxNX/dMgRWT1mt4XLDovaApD53E9W3ilNX5M55LJHpRtIsgAvciR4WWcgK2Dvb1YqgXevmF8z2zEBTcKG39EfSKsT9EbhVUaI2FZO+oZIqImxol6j66/hcAu4sSN4vc1ZPoKeoE6RGhYL2YYA+ymOSSi0Z0wWntbtkGUWCvfSDXIxONraZ/FY90KUfNTpfC5spnNLgxoYNnR9RO4F8ofXEHOgogCQE99w+fF2Xw+b7O59rEOsyRqGEfpVoaDMQQ1CZrG46bcM6AZ0C/wPqNfHliqejyTySxh9TqQpL+xmbIlkB9SlAAAAABJRU5ErkJggg==" alt="Reset"></button></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 0px; left: 559px; bottom: -88.25px; transition: left 0s ease-out 0s, bottom 0s ease-out 0s;"><div style="width: auto; height: auto; min-width: 50px; margin: 0px; padding: 5px; font-family: Trebuchet MS, Helvetica, sans-serif; font-weight: normal; font-style: normal; font-size: 14px; color: black; text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px; text-align: left; border: 1px solid rgb(79, 129, 188); background: rgba(255, 255, 255, 0.9) none repeat scroll 0% 0%; text-indent: 0px; white-space: nowrap; border-radius: 0px; -moz-user-select: none;"><span style="color:#4F81BC;">25 Nov 19:</span>&nbsp;&nbsp;150</div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
 
             </div>

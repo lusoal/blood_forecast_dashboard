@@ -1,7 +1,7 @@
 venv
 # Created by https://www.gitignore.io/api/flask,python
 # Edit at https://www.gitignore.io/?templates=flask,python
-
+task.json
 ### Flask ###
 instance/*
 !instance/.gitignore
@@ -160,4 +160,3 @@ dmypy.json
 # Pyre type checker
 
 # End of https://www.gitignore.io/api/flask,python
-

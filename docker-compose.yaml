@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+
+  python_example:
+    build: .
+    container_name: glicosis-dashboard
+    networks:
+      - project-network
+    environment:
+        USER_POOL_ID: ""
+        APP_CLIENT_ID: ""
+        APP_CLIENT_SECRET: ""
+        API_GATEWAY_URL_ENDPOINT: ""
+        COGNITO_URL: ""
+        AWS_DEFAULT_REGION: "us-east-1"
+        AWS_ACCESS_KEY_ID: ""
+        AWS_SECRET_ACCESS_KEY: ""
+    ports:
+        - "5000:5000"
+
+networks:
+  project-network:
+    driver: bridge
