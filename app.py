@@ -16,8 +16,9 @@ import requests
 import datetime
 import json
 import sys
+import jwt
 
-from congito import cognito_auth
+# from congito import cognito_auth
 
 app = Flask(__name__)
 app.secret_key = "eipohgoo4rai0uf5ie1oshahmaeF"
@@ -63,36 +64,41 @@ def login_callback():
     # Todo tratar os erros
     response_dict = json.loads(response.text)
 
-    logging.warning(f"Autenticacao retorno {response_dict}")
+    logging.warning(f"Access Token {response_dict.get('access_token')}")
+
+    result_access_token = jwt.decode(response_dict.get("access_token"), verify=False)
+    username = result_access_token["username"]
+
+    logging.warning(f"O user_id sera {username}")
 
     session["app_client_id"] = response_dict.get("id_token")
     session["access_token"] = response_dict.get("access_token")
     session[
         "user_id"
     ] = (
-        1
-    )  # TODO: pegar user_id do cognito, criar atributo obrigatorio chamado device_id
+        username
+    )  # Definindo o username como o user_id dessa forma sera o ID do device IoT
 
     return redirect(url_for("menu"))
 
 
-@app.route("/login", methods=["POST"])
-def login():
-    # session['user_id'] = usuario.id Set Session attribute
-    username = request.form["username"]
-    password = request.form["password"]
-    try:
-        app_client_id = cognito_auth.authenticate_and_get_token(
-            username, password, USER_POOL_ID, APP_CLIENT_ID
-        )
+# @app.route("/login", methods=["POST"])
+# def login():
+#     # session['user_id'] = usuario.id Set Session attribute
+#     username = request.form["username"]
+#     password = request.form["password"]
+#     try:
+#         app_client_id = cognito_auth.authenticate_and_get_token(
+#             username, password, USER_POOL_ID, APP_CLIENT_ID
+#         )
 
-        session["app_client_id"] = app_client_id["IdToken"]
-        session["user_id"] = 1
+#         session["app_client_id"] = app_client_id["IdToken"]
+#         session["user_id"] = 1
 
-        return redirect(url_for("menu"))
-    except Exception as e:
-        print(f"[ERROR] {e}", file=sys.stderr)
-        return redirect(url_for("index"))
+#         return redirect(url_for("menu"))
+#     except Exception as e:
+#         print(f"[ERROR] {e}", file=sys.stderr)
+#         return redirect(url_for("index"))
 
 
 @app.route("/logout", methods=["POST"])
@@ -112,15 +118,23 @@ def realizar_forecast():
     try:
         headers = {"X-COG-ID": session["app_client_id"]}
         payload = {"user_id": session["user_id"]}
+
+        logging.warning(f"Payload da requisicao {payload}")
+
         response = requests.get(
             f"{API_GATEWAY_URL_ENDPOINT}/get_blood_forecast",
             params=payload,
             headers=headers,
         )
 
+        logging.warning(f"Status Code: {response.status_code}")
+
         forecast = response.text
         logging.warning(f"Forecast Retorno {forecast}")
-        return redirect(url_for("exibir_grafico_forecast", forecast=forecast))
+
+        if "errorMessage" not in forecast:
+            return redirect(url_for("exibir_grafico_forecast", forecast=forecast))
+        return render_template("retorno_forecast.html", user_id=session["user_id"])
     except Exception as e:
         print(f"[ERROR] {e}", file=sys.stderr)
         return redirect(url_for("menu"))
