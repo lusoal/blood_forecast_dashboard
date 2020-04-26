@@ -73,6 +73,9 @@ def login_callback():
 
     session["app_client_id"] = response_dict.get("id_token")
     session["access_token"] = response_dict.get("access_token")
+
+    logging.warning(f"O id_token é: {response_dict.get('id_token')}")
+
     session[
         "user_id"
     ] = (
@@ -112,12 +115,22 @@ def menu():
     return render_template("menu.html")
 
 
-@app.route("/realizar_forecast", methods=["GET"])
+@app.route("/selecionar_data_forecast", methods=["GET"])
+def selecionar_data_forecast():
+    return render_template("grafico_forecast_data.html")
+
+
+@app.route("/realizar_forecast", methods=["GET", "POST"])
 def realizar_forecast():
     # TODO: validate response if contains error message
     try:
+        data_forecast = request.form["data"]
+        data_forecast = data_forecast.replace("-", "_")
+
+        print(f"[INFO] Data selecionada para realizar o Forecast {data_forecast}")
+
         headers = {"X-COG-ID": session["app_client_id"]}
-        payload = {"user_id": session["user_id"]}
+        payload = {"user_id": session["user_id"], "data_forecast": data_forecast}
 
         logging.warning(f"Payload da requisicao {payload}")
 
